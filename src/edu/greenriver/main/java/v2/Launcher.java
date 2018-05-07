@@ -1,6 +1,5 @@
 package v2;
 
-import v1.KwicV1;
 import v2.model.IndexProductionSystem;
 import v2.model.KwicV2;
 import v2.model.KwicV3;
