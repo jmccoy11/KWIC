@@ -2,10 +2,10 @@ package tests;
 
 import org.junit.Assert;
 import org.junit.Test;
-import v1.KwikV1;
+import v1.KwicV1;
 import v2.model.IndexProductionSystem;
-import v2.model.KwikV2;
-import v2.model.KwikV3;
+import v2.model.KwicV2;
+import v2.model.KwicV3;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -38,26 +38,26 @@ public class OutputTests {
     public void testVersion1Output() {
         displayVersionTest(1);
 
-        KwikV1 kwikV1 = new KwikV1(TestHelperMethods.INPUT_FILE, TestHelperMethods.VER1_OUTPUT_FILE);
+        KwicV1 kwicV1 = new KwicV1();
 
         System.out.println();
         System.out.println("Testing against Alphabetize");
-        kwikV1.alphabetize(kwikV1.allLines);
-        kwikV1.writeLines(kwikV1.allLines);
-        testAgainstControl("alphabetize", loadFileToList(TestHelperMethods.VER1_OUTPUT_FILE));
+        kwicV1.alphabetize(kwicV1.allLines);
+        kwicV1.writeLines(kwicV1.allLines, TestHelperMethods.VER1_OUTPUT_FILE);
+        testAgainstControl("alphabetize", loadFileToList(tests.TestHelperMethods.VER1_OUTPUT_FILE));
 
         System.out.println();
         System.out.println("Testing against First Shift");
-        kwikV1.circularShift(kwikV1.allLines);
-        kwikV1.alphabetize(kwikV1.allLines);
-        kwikV1.writeLines(kwikV1.allLines);
+        kwicV1.circularShift(kwicV1.allLines);
+        kwicV1.alphabetize(kwicV1.allLines);
+        kwicV1.writeLines(kwicV1.allLines, TestHelperMethods.VER1_OUTPUT_FILE);
         testAgainstControl("firstShift", loadFileToList(TestHelperMethods.VER1_OUTPUT_FILE));
 
         System.out.println();
         System.out.println("Testing against Second Shift");
-        kwikV1.circularShift(kwikV1.allLines);
-        kwikV1.alphabetize(kwikV1.allLines);
-        kwikV1.writeLines(kwikV1.allLines);
+        kwicV1.circularShift(kwicV1.allLines);
+        kwicV1.alphabetize(kwicV1.allLines);
+        kwicV1.writeLines(kwicV1.allLines, TestHelperMethods.VER1_OUTPUT_FILE);
         testAgainstControl("secondShift", loadFileToList(TestHelperMethods.VER1_OUTPUT_FILE));
     }
 
@@ -65,40 +65,40 @@ public class OutputTests {
     public void testVersion2Output() {
         displayVersionTest(2);
 
-        IndexProductionSystem kwikV2 = new KwikV2(TestHelperMethods.INPUT_FILE, TestHelperMethods.VER2_OUTPUT_FILE);
+        IndexProductionSystem kwicV2 = new KwicV2(TestHelperMethods.INPUT_FILE, TestHelperMethods.VER2_OUTPUT_FILE);
 
-        runOutputTest(kwikV2, TestHelperMethods.VER2_OUTPUT_FILE);
+        runOutputTest(kwicV2, TestHelperMethods.VER2_OUTPUT_FILE);
     }
 
     @Test
     public void testVersion3Output() {
         displayVersionTest(3);
 
-        IndexProductionSystem kwikV3 = new KwikV3(TestHelperMethods.INPUT_FILE, TestHelperMethods.VER3_OUTPUT_FILE);
+        IndexProductionSystem kwicV3 = new KwicV3(TestHelperMethods.INPUT_FILE, TestHelperMethods.VER3_OUTPUT_FILE);
 
-        runOutputTest(kwikV3, TestHelperMethods.VER3_OUTPUT_FILE);
+        runOutputTest(kwicV3, TestHelperMethods.VER3_OUTPUT_FILE);
     }
 
-    private void runOutputTest(IndexProductionSystem kwik, String outputFile) {
+    private void runOutputTest(IndexProductionSystem kwic, String outputFile) {
 
         System.out.println();
         System.out.println("Testing against Alphabetize");
-        kwik.writeLines();
+        kwic.writeLines();
         testAgainstControl("alphabetized", loadFileToList(outputFile));
 
 
         System.out.println();
         System.out.println("Testing against First Shift");
-        kwik.circularShift();
-        kwik.writeLines();
+        kwic.circularShift();
+        kwic.writeLines();
 
         testAgainstControl("firstShift", loadFileToList(outputFile));
 
 
         System.out.println();
         System.out.println("Testing against Second Shift");
-        kwik.circularShift();
-        kwik.writeLines();
+        kwic.circularShift();
+        kwic.writeLines();
         testAgainstControl("secondShift", loadFileToList(outputFile));
     }
 

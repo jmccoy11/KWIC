@@ -1,4 +1,4 @@
-package v2.LineManager;
+package v2.lineManager;
 
 import v2.interfaces.IAlphabetizableCollection;
 

@@ -5,22 +5,31 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.*;
 
-public class KwikV1 {
+public class KwicV1 {
     public ArrayList<String> allLines;
-    private String inputFilePath;
-    private String outputFilePath;
+    private static final String INPUT_FILE_PATH = "warAndPeace_modified.txt";
+    private static final String OUTPUT_FILE_PATH = "KWIK_Output.txt";
 
-    public KwikV1(String inputFilePath, String outputFilePath) {
-        this.inputFilePath = inputFilePath;
-        this.outputFilePath = outputFilePath;
+    public KwicV1() {
         this.allLines = readLines();
+    }
+
+    public static void main(String[] args) {
+        KwicV1 kwikV1 = new KwicV1();
+//        kwikV1.circularShift(kwikV1.allLines);
+        kwikV1.alphabetize(kwikV1.allLines);
+        kwikV1.writeLines(kwikV1.allLines, OUTPUT_FILE_PATH);
+
+        System.out.println();
+        System.out.println("----------------------");
+        System.out.println();
     }
 
     private ArrayList<String> readLines() {
         ArrayList<String> result = new ArrayList<>();
         long timeAtStart = 0;
 
-        try (Scanner reader = new Scanner(new File(inputFilePath))) {
+        try (Scanner reader = new Scanner(new File(INPUT_FILE_PATH))) {
             timeAtStart = System.nanoTime();
 
             while (reader.hasNextLine()) {
@@ -74,7 +83,7 @@ public class KwikV1 {
                 (timeAtEnd - timeAtStart) / 1000000 + " milliseconds.");
     }
 
-    public void writeLines(ArrayList<String> lines) {
+    public void writeLines(ArrayList<String> lines, String outputFilePath) {
         long timeAtStart = System.nanoTime();
 
         try (PrintWriter writer = new PrintWriter(new File(outputFilePath))) {

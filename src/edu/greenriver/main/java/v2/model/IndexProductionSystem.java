@@ -1,10 +1,10 @@
 package v2.model;
 
-import v2.LineManager.StringLineManagerV2;
 import v2.interfaces.IAlphabetizableCollection;
 import v2.interfaces.ICircularShift;
 import v2.interfaces.ILineIO;
 import v2.lineIO.LineIO;
+import v2.lineManager.StringLineManagerV2;
 
 import java.util.ArrayList;
 import java.util.StringJoiner;
