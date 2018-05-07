@@ -19,10 +19,10 @@ public class TimingTests {
         displayVersionTest(1);
         long timeAtStart = System.nanoTime();
 
-        KwicV1 kwikV1 = new KwicV1();
-        kwikV1.circularShift(kwikV1.allLines);
-        kwikV1.alphabetize(kwikV1.allLines);
-        kwikV1.writeLines(kwikV1.allLines, TestHelperMethods.VER1_OUTPUT_FILE);
+        KwicV1 kwicV1 = new KwicV1();
+        kwicV1.circularShift(kwicV1.allLines);
+        kwicV1.alphabetize(kwicV1.allLines);
+        kwicV1.writeLines(kwicV1.allLines, TestHelperMethods.VER1_OUTPUT_FILE);
 
         long timeAtEnd = System.nanoTime();
         long timeToComplete = getTimeToComplete(timeAtStart, timeAtEnd);
@@ -38,9 +38,9 @@ public class TimingTests {
 
         long timeAtStart = System.nanoTime();
 
-        IndexProductionSystem kwik = new KwicV2(TestHelperMethods.INPUT_FILE, TestHelperMethods.VER2_OUTPUT_FILE);
-        kwik.circularShift();
-        kwik.writeLines();
+        IndexProductionSystem kwic = new KwicV2(TestHelperMethods.INPUT_FILE, TestHelperMethods.VER2_OUTPUT_FILE);
+        kwic.circularShift();
+        kwic.writeLines();
 
         long timeAtEnd = System.nanoTime();
         long timeToComplete = getTimeToComplete(timeAtStart, timeAtEnd);
@@ -56,9 +56,9 @@ public class TimingTests {
 
         long timeAtStart = System.nanoTime();
 
-        IndexProductionSystem kwik = new KwicV3(TestHelperMethods.INPUT_FILE, TestHelperMethods.VER3_OUTPUT_FILE);
-        kwik.circularShift();
-        kwik.writeLines();
+        IndexProductionSystem kwic = new KwicV3(TestHelperMethods.INPUT_FILE, TestHelperMethods.VER3_OUTPUT_FILE);
+        kwic.circularShift();
+        kwic.writeLines();
 
         long timeAtEnd = System.nanoTime();
         long timeToComplete = getTimeToComplete(timeAtStart, timeAtEnd);

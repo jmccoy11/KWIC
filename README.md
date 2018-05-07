@@ -96,7 +96,7 @@ verify that the program is working correctly.*
 
 - Found a text copy of War and Peace.
 - Modified file to remove all special characters, extra whitespace, and lines like "BOOK", "EP".
-- Output of KwicV1, V2, and V3 output to KWIK_Output.txt
+- Output of KwicV1, V2, and V3 output to KWIC_Output.txt
 - Created jUnit4 tests to test the timing each version takes and verify the output of each version.
     - Unfortunately, while nearly 50% faster than the other V1 and V3, V2 uses a data structure that does not allow 
     duplicates which is causing it to fail the verification test. A new data structure that acts like a TreeSet but 

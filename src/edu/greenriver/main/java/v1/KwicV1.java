@@ -8,17 +8,17 @@ import java.util.*;
 public class KwicV1 {
     public ArrayList<String> allLines;
     private static final String INPUT_FILE_PATH = "warAndPeace_modified.txt";
-    private static final String OUTPUT_FILE_PATH = "KWIK_Output.txt";
+    private static final String OUTPUT_FILE_PATH = "KWIC_Output.txt";
 
     public KwicV1() {
         this.allLines = readLines();
     }
 
     public static void main(String[] args) {
-        KwicV1 kwikV1 = new KwicV1();
-//        kwikV1.circularShift(kwikV1.allLines);
-        kwikV1.alphabetize(kwikV1.allLines);
-        kwikV1.writeLines(kwikV1.allLines, OUTPUT_FILE_PATH);
+        KwicV1 kwicV1 = new KwicV1();
+        kwicV1.circularShift(kwicV1.allLines);
+        kwicV1.alphabetize(kwicV1.allLines);
+        kwicV1.writeLines(kwicV1.allLines, OUTPUT_FILE_PATH);
 
         System.out.println();
         System.out.println("----------------------");
